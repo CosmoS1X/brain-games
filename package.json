@@ -1,0 +1,38 @@
+{
+  "name": "brain-games",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "build": "npx tsc"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "setupFilesAfterEnv": [
+      "jest-sorted"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CosmoS1X/brain-games.git"
+  },
+  "author": "Konstantin Korovin <cosmo.stan@yandex.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CosmoS1X/brain-games/issues"
+  },
+  "homepage": "https://github.com/CosmoS1X/brain-games#readme",
+  "devDependencies": {
+    "@types/node": "^22.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "typescript": "^5.5.4"
+  }
+}
