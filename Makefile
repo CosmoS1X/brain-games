@@ -17,3 +17,9 @@ build:
 
 type-check:
 	npx tsc --noEmit
+
+run:
+	node dist/bin/brain-games.js
+
+publish:
+	npm publish --dry-run

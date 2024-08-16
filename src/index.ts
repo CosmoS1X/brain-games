@@ -1,1 +1,3 @@
-console.log('Hello from new repository');
+export default () => {
+  console.log('Welcome to the Brain Games!');
+};
