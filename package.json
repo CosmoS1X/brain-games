@@ -27,8 +27,12 @@
     "url": "https://github.com/CosmoS1X/brain-games/issues"
   },
   "homepage": "https://github.com/CosmoS1X/brain-games#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
   "devDependencies": {
     "@types/node": "^22.3.0",
+    "@types/readline-sync": "^1.4.8",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.0",
