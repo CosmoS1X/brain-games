@@ -1,51 +1,60 @@
 import readlineSync from 'readline-sync';
 import BrainEven from './games/BrainEven';
 
-type Games = {
-  [key: string]: BrainEven;
-};
+type GameTypesUnion = BrainEven;
 
-const gamesMapping: Games = {
+const gamesMap: Record<string, GameTypesUnion> = {
   1: new BrainEven(),
 };
 
+const typeMessage = (message: string): void => console.log(message);
+
 export default (): void => {
-  console.log('Welcome to the Brain Games!');
+  const separator = '';
+  typeMessage('Welcome to the Brain Games!');
 
   const name = readlineSync.question('May I have your name? ');
 
-  console.log(`Hello, ${name}!\n`);
-  console.log('Here is the list of Games:\n');
-  console.log('1. Brain Even');
-  console.log('');
+  typeMessage(separator);
+  typeMessage(`Hello, ${name}!`);
+  typeMessage('Here is the list of Games:');
+  typeMessage(separator);
+  typeMessage('1. Brain Even');
+  typeMessage(separator);
 
   const gameNumber = readlineSync.question('Please enter the number of the game you wish to play: ');
-  const game = gamesMapping[gameNumber];
+  const game = gamesMap[gameNumber];
 
   if (!game) {
-    console.log(`There is no game with number ${gameNumber}. Please enter the correct number.`);
+    typeMessage(`There is no game with number ${gameNumber}. Please enter the correct number.`);
     return;
   }
 
-  console.log(`You chose "${game.getName()}"`);
+  typeMessage(separator);
+  typeMessage(`You chose "${game.getName()}"`);
 
   const maxRound = Number(readlineSync.question('How many rounds do you want to play? '));
 
-  console.log(game.getTask());
+  typeMessage(separator);
+  typeMessage(game.getTask());
+  typeMessage(separator);
 
   while (game.getRound() <= maxRound) {
-    console.log(`Round ${game.getRound()}! Question: ${game.getQuestion()}`);
+    game.generateQuestionAndAnswer();
+    typeMessage(`Round ${game.getRound()}! Question: ${game.getQuestion()}`);
+
     const answer = readlineSync.question('Your answer: ');
 
-    if (answer.toLocaleLowerCase() === game.getAnswer()) {
-      console.log('Correct!');
+    if (answer.toLowerCase() === game.getAnswer()) {
+      typeMessage('Correct!');
+      typeMessage(separator);
       game.nextRound();
     } else {
-      console.log(`"${answer}" is wrong answer! Correct answer was "${game.getAnswer()}"`);
-      console.log(`Let's try again, ${name}!`);
+      typeMessage(`"${answer}" is wrong answer! Correct answer was "${game.getAnswer()}"`);
+      typeMessage(`Let's try again, ${name}!`);
       return;
     }
   }
 
-  console.log(`Congratulations, ${name}`);
+  typeMessage(`Congratulations, ${name}`);
 };

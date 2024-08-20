@@ -1,51 +1,16 @@
 import getRandomInteger from '../getRandomInteger';
+import GameEngine from './GameEngine';
 
-export default class BrainEven {
-  private round = 1;
-
-  private name = 'Brain Even';
-
-  private task = 'Answer "yes" if the number is even, otherwise answer "no".';
-
-  private question = 0;
-
-  private answer: string | null = null;
-
-  getRound() {
-    return this.round;
+export default class BrainEven extends GameEngine {
+  constructor() {
+    const name = 'Brain Even';
+    const task = 'Answer "yes" if the number is even, otherwise answer "no".';
+    super({ name, task });
   }
 
-  nextRound() {
-    this.round += 1;
-  }
-
-  getName() {
-    return this.name;
-  }
-
-  getTask() {
-    return this.task;
-  }
-
-  private setQuestion() {
-    this.question = getRandomInteger(1, 99);
-  }
-
-  getQuestion() {
-    this.generateQuestionAndAnswer();
-    return this.question;
-  }
-
-  private setAnswer() {
-    this.answer = this.question % 2 === 0 ? 'yes' : 'no';
-  }
-
-  getAnswer() {
-    return this.answer;
-  }
-
-  private generateQuestionAndAnswer() {
-    this.setQuestion();
-    this.setAnswer();
+  generateQuestionAndAnswer() {
+    const randomInteger = getRandomInteger(1, 99);
+    this.setQuestion(String(randomInteger));
+    this.setAnswer(randomInteger % 2 === 0 ? 'yes' : 'no');
   }
 }
