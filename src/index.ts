@@ -1,10 +1,12 @@
 import readlineSync from 'readline-sync';
 import BrainEven from './games/BrainEven';
+import BrainCalc from './games/BrainCalc';
 
-type GameTypesUnion = BrainEven;
+type GameTypesUnion = BrainEven | BrainCalc;
 
 const gamesMap: Record<string, GameTypesUnion> = {
   1: new BrainEven(),
+  2: new BrainCalc(),
 };
 
 const typeMessage = (message: string): void => console.log(message);
@@ -20,6 +22,7 @@ export default (): void => {
   typeMessage('Here is the list of Games:');
   typeMessage(separator);
   typeMessage('1. Brain Even');
+  typeMessage('2. Brain Calc');
   typeMessage(separator);
 
   const gameNumber = readlineSync.question('Please enter the number of the game you wish to play: ');
@@ -56,5 +59,5 @@ export default (): void => {
     }
   }
 
-  typeMessage(`Congratulations, ${name}`);
+  typeMessage(`Congratulations, ${name}!`);
 };
