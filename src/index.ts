@@ -1,13 +1,15 @@
 import readlineSync from 'readline-sync';
 import BrainEven from './games/BrainEven';
+import BrainCalc from './games/BrainCalc';
 
-type GameInstancesUnion = BrainEven;
+type GameInstancesUnion = BrainEven | BrainCalc;
 
 const gamesMap: Record<string, GameInstancesUnion> = {
   'Brain Even': new BrainEven(),
+  'Brain Calc': new BrainCalc(),
 };
 
-const gameNames = ['Brain Even'];
+const gameNames = ['Brain Even', 'Brain Calc'];
 
 const typeMessage = (message: string): void => console.log(message);
 
@@ -53,10 +55,11 @@ export default (): void => {
       game.nextRound();
     } else {
       typeMessage(`"${answer}" is wrong answer! Correct answer was "${game.getAnswer()}"`);
+      typeMessage(separator);
       typeMessage(`Let's try again, ${name}!`);
       return;
     }
   }
 
-  typeMessage(`Congratulations, ${name}`);
+  typeMessage(`Congratulations, ${name}!`);
 };
