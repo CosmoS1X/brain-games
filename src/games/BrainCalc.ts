@@ -1,21 +1,23 @@
 import GameEngine from './GameEngine';
 import getRandomInteger from '../getRandomInteger';
 
-const calculate = (a: number, b:number, op: string): number => {
-  switch (op) {
+type OperatorsUnion = '+' | '-' | '*';
+
+const calculate = (leftOperand: number, rightOperand: number, operator: OperatorsUnion): number => {
+  switch (operator) {
     case '+':
-      return a + b;
+      return leftOperand + rightOperand;
     case '-':
-      return a - b;
+      return leftOperand - rightOperand;
     case '*':
-      return a * b;
+      return leftOperand * rightOperand;
     default:
-      throw new Error('Unexpected error in calculation function');
+      throw new Error('Received unknown operator');
   }
 };
 
-const getRandomOperator = (): string => {
-  const operators: [string, string, string] = ['+', '-', '*'];
+const getRandomOperator = (): OperatorsUnion => {
+  const operators: OperatorsUnion[] = ['+', '-', '*'];
   const randomIndex = getRandomInteger(0, operators.length - 1);
   return operators[randomIndex];
 };
@@ -26,10 +28,10 @@ export default class BrainCalc extends GameEngine {
   }
 
   generateQuestionAndAnswer() {
-    const a = getRandomInteger(1, 99);
-    const b = getRandomInteger(1, 99);
-    const op = getRandomOperator();
-    this.setQuestion(`${a} ${op} ${b}`);
-    this.setAnswer(String(calculate(a, b, op)));
+    const leftOperand = getRandomInteger(1, 99);
+    const rightOperand = getRandomInteger(1, 99);
+    const operator = getRandomOperator();
+    this.setQuestion(`${leftOperand} ${operator} ${rightOperand}`);
+    this.setAnswer(String(calculate(leftOperand, rightOperand, operator)));
   }
 }
