@@ -38,7 +38,7 @@ export default (): void => {
   typeMessage(`You chose "${gameName}"`);
 
   const game = gamesMap[gameName];
-  const maxRound = Number(readlineSync.question('How many rounds do you want to play? '));
+  const maxRound = readlineSync.questionInt('How many rounds do you want to play? ');
 
   typeMessage(separator);
   typeMessage(game.getTask());
