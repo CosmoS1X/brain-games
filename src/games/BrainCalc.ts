@@ -22,9 +22,7 @@ const getRandomOperator = (): string => {
 
 export default class BrainCalc extends GameEngine {
   constructor() {
-    const name = 'Brain Calc';
-    const task = 'What is the result of the expression?';
-    super({ name, task });
+    super('What is the result of the expression?');
   }
 
   generateQuestionAndAnswer() {
