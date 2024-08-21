@@ -1,11 +1,4 @@
-type EngineArgs = {
-  name: string;
-  task: string;
-};
-
 export default class GameEngine {
-  private name: string;
-
   private task: string;
 
   private round: number = 1;
@@ -14,16 +7,11 @@ export default class GameEngine {
 
   private answer: string = '';
 
-  constructor({ name, task }: EngineArgs) {
-    this.name = name;
+  constructor(task: string) {
     this.task = task;
   }
 
-  getName() {
-    return this.name;
-  }
-
-  getTask() {
+  getTask(): string {
     return this.task;
   }
 

@@ -1,11 +1,13 @@
 import readlineSync from 'readline-sync';
 import BrainEven from './games/BrainEven';
 
-type GameTypesUnion = BrainEven;
+type GameInstancesUnion = BrainEven;
 
-const gamesMap: Record<string, GameTypesUnion> = {
-  1: new BrainEven(),
+const gamesMap: Record<string, GameInstancesUnion> = {
+  'Brain Even': new BrainEven(),
 };
+
+const gameNames = ['Brain Even'];
 
 const typeMessage = (message: string): void => console.log(message);
 
@@ -18,21 +20,21 @@ export default (): void => {
   typeMessage(separator);
   typeMessage(`Hello, ${name}!`);
   typeMessage('Here is the list of Games:');
-  typeMessage(separator);
-  typeMessage('1. Brain Even');
-  typeMessage(separator);
 
-  const gameNumber = readlineSync.question('Please enter the number of the game you wish to play: ');
-  const game = gamesMap[gameNumber];
+  const gameIndex = readlineSync.keyInSelect(gameNames, 'Please enter the number of the game you wish to play:?');
 
-  if (!game) {
-    typeMessage(`There is no game with number ${gameNumber}. Please enter the correct number.`);
+  if (gameIndex === -1) {
+    typeMessage(separator);
+    typeMessage('The game has been canceled');
     return;
   }
 
-  typeMessage(separator);
-  typeMessage(`You chose "${game.getName()}"`);
+  const gameName = gameNames[gameIndex];
 
+  typeMessage(separator);
+  typeMessage(`You chose "${gameName}"`);
+
+  const game = gamesMap[gameName];
   const maxRound = Number(readlineSync.question('How many rounds do you want to play? '));
 
   typeMessage(separator);
