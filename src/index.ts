@@ -3,13 +3,14 @@ import BrainEven from './games/BrainEven';
 import BrainCalc from './games/BrainCalc';
 
 type GameInstancesUnion = BrainEven | BrainCalc;
+type GameNamesUnion = 'Brain Even' | 'Brain Calc';
 
-const gamesMap: Record<string, GameInstancesUnion> = {
+const gamesMap: Record<GameNamesUnion, GameInstancesUnion> = {
   'Brain Even': new BrainEven(),
   'Brain Calc': new BrainCalc(),
 };
 
-const gameNames = ['Brain Even', 'Brain Calc'];
+const gameNames: GameNamesUnion[] = Object.keys(gamesMap) as GameNamesUnion[];
 
 const typeMessage = (message: string): void => console.log(message);
 
