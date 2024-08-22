@@ -1,13 +1,15 @@
 import readlineSync from 'readline-sync';
 import BrainEven from './games/BrainEven';
 import BrainCalc from './games/BrainCalc';
+import BrainGCD from './games/BrainGCD';
 
-type GameInstancesUnion = BrainEven | BrainCalc;
-type GameNamesUnion = 'Brain Even' | 'Brain Calc';
+type GameInstancesUnion = BrainEven | BrainCalc | BrainGCD;
+type GameNamesUnion = 'Brain Even' | 'Brain Calc' | 'Brain GCD';
 
 const gamesMap: Record<GameNamesUnion, GameInstancesUnion> = {
   'Brain Even': new BrainEven(),
   'Brain Calc': new BrainCalc(),
+  'Brain GCD': new BrainGCD(),
 };
 
 const gameNames: GameNamesUnion[] = Object.keys(gamesMap) as GameNamesUnion[];
