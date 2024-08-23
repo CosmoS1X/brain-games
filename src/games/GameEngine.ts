@@ -1,3 +1,7 @@
+export interface IGame {
+  generateQuestionAndAnswer(): void;
+}
+
 export default class GameEngine {
   private task: string;
 

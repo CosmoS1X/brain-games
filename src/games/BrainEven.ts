@@ -1,7 +1,7 @@
 import getRandomInteger from '../getRandomInteger';
-import GameEngine from './GameEngine';
+import GameEngine, { IGame } from './GameEngine';
 
-export default class BrainEven extends GameEngine {
+export default class BrainEven extends GameEngine implements IGame {
   constructor() {
     super('Answer "yes" if the number is even, otherwise answer "no".');
   }

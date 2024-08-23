@@ -1,9 +1,9 @@
-import GameEngine from './GameEngine';
 import getRandomInteger from '../getRandomInteger';
+import GameEngine, { IGame } from './GameEngine';
 
 type OperatorsUnion = '+' | '-' | '*';
 
-export default class BrainCalc extends GameEngine {
+export default class BrainCalc extends GameEngine implements IGame {
   constructor() {
     super('What is the result of the expression?');
   }

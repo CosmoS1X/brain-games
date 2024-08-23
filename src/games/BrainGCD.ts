@@ -1,7 +1,7 @@
 import getRandomInteger from '../getRandomInteger';
-import GameEngine from './GameEngine';
+import GameEngine, { IGame } from './GameEngine';
 
-export default class BrainGCD extends GameEngine {
+export default class BrainGCD extends GameEngine implements IGame {
   constructor() {
     super('Find the greatest common divisor of given numbers.');
   }
