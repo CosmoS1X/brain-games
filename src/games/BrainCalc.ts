@@ -1,9 +1,9 @@
 import getRandomInteger from '../getRandomInteger';
-import GameEngine, { IGame } from './GameEngine';
+import GameEngine from './GameEngine';
 
 type OperatorsUnion = '+' | '-' | '*';
 
-export default class BrainCalc extends GameEngine implements IGame {
+export default class BrainCalc extends GameEngine {
   constructor() {
     super('What is the result of the expression?');
   }
@@ -27,7 +27,7 @@ export default class BrainCalc extends GameEngine implements IGame {
     return operators[randomIndex];
   }
 
-  generateQuestionAndAnswer() {
+  generateQuestionAndAnswer(): void {
     const leftOperand = getRandomInteger(1, 99);
     const rightOperand = getRandomInteger(1, 99);
     const operator = this.getRandomOperator();

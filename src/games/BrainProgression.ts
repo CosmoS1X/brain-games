@@ -1,7 +1,7 @@
 import getRandomInteger from '../getRandomInteger';
-import GameEngine, { IGame } from './GameEngine';
+import GameEngine from './GameEngine';
 
-export default class BrainProgression extends GameEngine implements IGame {
+export default class BrainProgression extends GameEngine {
   constructor() {
     super('What number is missing in the progression?');
   }

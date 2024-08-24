@@ -1,8 +1,4 @@
-export interface IGame {
-  generateQuestionAndAnswer(): void;
-}
-
-export default class GameEngine {
+export default abstract class GameEngine {
   private task: string;
 
   private round: number = 1;
@@ -42,4 +38,6 @@ export default class GameEngine {
   protected setAnswer(answer: string): void {
     this.answer = answer;
   }
+
+  abstract generateQuestionAndAnswer(): void;
 }
