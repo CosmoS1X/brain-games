@@ -3,15 +3,17 @@ import BrainEven from './games/BrainEven';
 import BrainCalc from './games/BrainCalc';
 import BrainGCD from './games/BrainGCD';
 import BrainProgression from './games/BrainProgression';
+import BrainPrime from './games/BrainPrime';
 
-type GameInstancesUnion = BrainEven | BrainCalc | BrainGCD | BrainProgression;
-type GameNamesUnion = 'Brain Even' | 'Brain Calc' | 'Brain GCD' | 'Brain Progression';
+type GameInstancesUnion = BrainEven | BrainCalc | BrainGCD | BrainProgression | BrainPrime;
+type GameNamesUnion = 'Brain Even' | 'Brain Calc' | 'Brain GCD' | 'Brain Progression' | 'Brain Prime';
 
 const gamesMap: Record<GameNamesUnion, GameInstancesUnion> = {
   'Brain Even': new BrainEven(),
   'Brain Calc': new BrainCalc(),
   'Brain GCD': new BrainGCD(),
   'Brain Progression': new BrainProgression(),
+  'Brain Prime': new BrainPrime(),
 };
 
 const gameNames: GameNamesUnion[] = Object.keys(gamesMap) as GameNamesUnion[];
