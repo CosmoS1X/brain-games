@@ -1,5 +1,5 @@
-import GameEngine from './GameEngine';
 import getRandomInteger from '../getRandomInteger';
+import GameEngine from './GameEngine';
 
 type OperatorsUnion = '+' | '-' | '*';
 
@@ -27,7 +27,7 @@ export default class BrainCalc extends GameEngine {
     return operators[randomIndex];
   }
 
-  generateQuestionAndAnswer() {
+  generateQuestionAndAnswer(): void {
     const leftOperand = getRandomInteger(1, 99);
     const rightOperand = getRandomInteger(1, 99);
     const operator = this.getRandomOperator();
