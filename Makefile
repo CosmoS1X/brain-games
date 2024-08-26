@@ -1,5 +1,10 @@
-install:
-	npm install
+install: deps-install build link
+
+deps-install:
+	npm ci
+
+link:
+	npm link
 
 check: type-check lint test
 
@@ -23,3 +28,5 @@ run:
 
 publish:
 	npm publish --dry-run
+
+.PHONY: test
