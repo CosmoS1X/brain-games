@@ -15,32 +15,53 @@ cd brain-games
 make install
 ```
 
+## Run
+
+```bash
+brain-games
+```
+
+or
+
+```bash
+#inside "brain-games" directory
+make run
+```
+
 You can also download and run the [docker image](https://hub.docker.com/r/cosmos1x/brain-games) (requires docker installed).
 
 ```bash
 docker run -it cosmos1x/brain-games
 ```
 
-## Game descriptions
+## Game descriptions and examples:
 
 ### "Brain Even" game:
 
 You need to answer whether the number is even.
 
+[![asciicast](https://asciinema.org/a/3clo1UfylhW5JOf905FskmwRs.svg)](https://asciinema.org/a/3clo1UfylhW5JOf905FskmwRs)
+
 ### "Brain Calc" game:
 
 You need to calculate the result of the expression.
+
+[![asciicast](https://asciinema.org/a/DSvhDmMZnnbTFlRw3QwpM27nr.svg)](https://asciinema.org/a/DSvhDmMZnnbTFlRw3QwpM27nr)
 
 ### "Brain GCD" game:
 
 You need to find the greatest common divisor of given numbers.
 
+[![asciicast](https://asciinema.org/a/lTdtcWQf8H9qTldOr8yc4LcIA.svg)](https://asciinema.org/a/lTdtcWQf8H9qTldOr8yc4LcIA)
+
 ### "Brain Progression" game:
 
 You need to calculate the missing number of the progression.
+
+[![asciicast](https://asciinema.org/a/LncOD24SAc3ZiDbALXDEGxu4L.svg)](https://asciinema.org/a/LncOD24SAc3ZiDbALXDEGxu4L)
 
 ### "Brain Prime" game:
 
 Уou need to answer whether the number is prime.
 
----
+[![asciicast](https://asciinema.org/a/QsvTHBpJoxtsbAkz2v5AcNMef.svg)](https://asciinema.org/a/QsvTHBpJoxtsbAkz2v5AcNMef)
