@@ -27,6 +27,6 @@ run:
 	node dist/bin/brain-games.js
 
 publish:
-	npm publish --dry-run
+	npm publish --access=public
 
 .PHONY: test
