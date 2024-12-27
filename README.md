@@ -10,22 +10,13 @@ Brain Games is a simple CLI application to test and enhance your math skills. To
 ## Install
 
 ```bash
-git clone git@github.com:CosmoS1X/brain-games.git
-cd brain-games
-make install
+npm install -g @cosmo.dev/brain-games
 ```
 
 ## Run
 
 ```bash
 brain-games
-```
-
-or
-
-```bash
-#inside "brain-games" directory
-make run
 ```
 
 You can also download and run the [docker image](https://hub.docker.com/r/cosmos1x/brain-games) (requires docker installed).
