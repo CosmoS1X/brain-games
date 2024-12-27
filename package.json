@@ -1,21 +1,15 @@
 {
-  "name": "brain-games",
+  "name": "@cosmo.dev/brain-games",
   "version": "1.0.0",
-  "description": "",
+  "description": "Brain Games is a simple CLI application to test and enhance your math skills",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "setupFilesAfterEnv": [
-      "jest-sorted"
-    ]
   },
   "repository": {
     "type": "git",
