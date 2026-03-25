@@ -1,15 +1,27 @@
-FROM node:22-slim
+FROM node:24-trixie-slim AS builder
 
-WORKDIR /brain-games
+WORKDIR /app
 
-COPY package.json .
-COPY package-lock.json .
+COPY package*.json .
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
-RUN npx tsc
-RUN npm link
+RUN npm run build
 
-CMD ["brain-games"]
+FROM node:24-trixie-slim AS production
+
+WORKDIR /app
+
+COPY --from=builder /app/package*.json .
+
+RUN npm ci --omit=dev && npm cache clean --force
+
+COPY --from=builder /app/dist ./dist
+
+RUN npm install -g --omit=dev . && npm cache clean --force
+
+USER node
+
+ENTRYPOINT ["brain-games"]
